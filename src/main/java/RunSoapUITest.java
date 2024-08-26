@@ -1,3 +1,7 @@
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
 import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
@@ -56,23 +60,20 @@ public class RunSoapUITest {
                         choice = scanner.nextInt();
                         scanner.nextLine();  // Consume newline
 
-                        // Check if the choice is valid (1, 2, or 3)
                         if (choice == 1 || choice == 2 || choice == 3) {
-                            break;  // Valid choice, exit the loop
+                            break;
                         } else {
                             System.out.println("Invalid choice. Please enter a valid option (1, 2, or 3).");
                         }
                     } else {
-                        // If input is not an integer
                         System.out.println("Invalid input. Please enter a number (1, 2, or 3).");
-                        scanner.next();  // Consume the invalid input
+                        scanner.next();
                     }
                 }
 
                 // Execute actions based on user choice
                 switch (choice) {
                     case 1:
-                        // Execute a single test suite
                         System.out.print("Enter the test suite number to execute (1-" + testSuitesMap.size() + "): ");
                         int suiteNumber = scanner.nextInt();
                         scanner.nextLine();  // Consume newline
@@ -128,6 +129,8 @@ public class RunSoapUITest {
     // Method to run the INIT test suite
     private static void runInitTestSuite() throws IOException, InterruptedException {
         String initSuiteName = "INIT";
+
+
         System.out.println("Running the INIT test suite: " + initSuiteName);
         if (runTestSuite(initSuiteName,false)) {
             System.out.println("Test suite " + initSuiteName + " executed successfully.");
@@ -201,8 +204,6 @@ public class RunSoapUITest {
 
         return process.waitFor() == 0;  // Return true if the process finished successfully
     }
-
-
 
 
     // Method to run a single test suite as a subroutine
@@ -293,6 +294,36 @@ public class RunSoapUITest {
             handleError(e);  // Redirect error handling
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
